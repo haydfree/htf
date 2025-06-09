@@ -1,0 +1,29 @@
+#ifndef HTF_MEMORY_H
+#define HTF_MEMORY_H
+
+#include <htf_base.h>
+#include <htf_guard.h>
+#include <htf_option.h>
+#include <htf_result.h>
+
+static inline Result_void
+htf_zero_memory(void *ptr, u64 size) 
+{
+	Result_void ret = Err_void("htf_zero_memory");
+	u8 *p = (u8*)NULL;
+	u64 i = 0;
+
+	GUARD_NULL(ptr);
+	GUARD_NON_POS(size);
+
+	p = (u8*)ptr;
+	for (; i < size; i++) { p[i] = 0; }
+
+	ret = Ok_void((VOID){0});
+cleanup:
+	return ret;
+}
+
+#define ZERO_MEMORY(ptr, size) do { GUARD_SUCCESS(htf_zero_memory((ptr), (size))); } while (0)
+
+#endif
