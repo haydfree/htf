@@ -4,8 +4,9 @@ Result_void
 run_tests(void) 
 {
 	Result_void ret = Err_void("unknown error in run_tests");
+	u8 *ptr = (u8*)NULL;
 
-    ZERO_MEMORY(NULL, 0);
+    ZERO_MEMORY(ptr, 10);
     HTF_LOG_INFO("hello from test.c");
 
 	ret = Ok_void((VOID){0});
