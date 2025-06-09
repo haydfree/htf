@@ -24,6 +24,6 @@ cleanup:
 	return ret;
 }
 
-#define ZERO_MEMORY(ptr, size) do { GUARD_SUCCESS(htf_zero_memory((ptr), (size))); } while (0)
+#define ZERO_MEMORY(ptr, size) do { GUARD_SUCCESS(htf_zero_memory((ptr), (size)), void, "unknown error in ZERO_MEMORY"); } while (0)
 
 #endif
