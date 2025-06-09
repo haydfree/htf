@@ -20,26 +20,26 @@
         } data;                                          \
     } Result_##name;                                     \
                                                          \
-    static inline Result_##name Ok_##name(ok_type val)   \
+    inline Result_##name Ok_##name(ok_type val)   		 \
     {                                                    \
         Result_##name r = { .tag = RESULT_OK_##name };   \
         r.data.ok = val;                                 \
         return r;                                        \
     }                                                    \
                                                          \
-    static inline Result_##name Err_##name(err_type val) \
+    inline Result_##name Err_##name(err_type val) 		 \
     {                                                    \
         Result_##name r = { .tag = RESULT_ERR_##name };  \
         r.data.err = val;                                \
         return r;                                        \
     }                                                    \
                                                          \
-    static inline int is_ok_##name(Result_##name res)    \
+    inline int is_ok_##name(Result_##name res)    		 \
     {                                                    \
         return res.tag == RESULT_OK_##name;              \
     }                                                    \
                                                          \
-    static inline int is_err_##name(Result_##name res)   \
+    inline int is_err_##name(Result_##name res)   		 \
     {                                                    \
         return res.tag == RESULT_ERR_##name;             \
     }

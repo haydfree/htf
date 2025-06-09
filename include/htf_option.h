@@ -16,22 +16,22 @@
         type value;                                              \
     } Option_##name;                                             \
                                                                  \
-    static inline Option_##name Some_##name(type val)            \
+    inline Option_##name Some_##name(type val)            		 \
     {                                                            \
         return (Option_##name){ OPTION_SOME_##name, (type)val }; \
     }                                                            \
                                                                  \
-    static inline Option_##name None_##name(void)                \
+    inline Option_##name None_##name(void)                		 \
     {                                                            \
         return (Option_##name){ OPTION_NONE_##name, (type){0} }; \
     }                                                            \
                                                                  \
-    static inline int is_some_##name(Option_##name opt)          \
+    inline int is_some_##name(Option_##name opt)          		 \
     {                                                            \
         return opt.tag == OPTION_SOME_##name;                    \
     }                                                            \
                                                                  \
-    static inline int is_none_##name(Option_##name opt)          \
+    inline int is_none_##name(Option_##name opt)         		 \
     {                                                            \
         return opt.tag == OPTION_NONE_##name;                    \
     }
