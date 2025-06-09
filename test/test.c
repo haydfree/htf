@@ -1,9 +1,14 @@
 #include <test.h>
 
-int 
+Result_void
 main(void)
 {
-	htf_zero_memory(NULL, 0);
+	Result_void ret = Err_void("unknown error in main");
+
+	ZERO_MEMORY(NULL, 0);
 	HTF_LOG_INFO("hello from test.c");
-    return 0;
+
+	ret = Ok_void((VOID){0});
+cleanup:
+	return ret;
 }
