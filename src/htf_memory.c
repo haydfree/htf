@@ -1,6 +1,6 @@
 #include <htf_memory.h>
 
-inline Result_void
+Result_void
 htf_zero_memory(void *ptr, u64 size) 
 {
 	Result_void ret = Err_void("unknown error in htf_zero_memory");

@@ -20,26 +20,26 @@
         } data;                                          \
     } Result_##name;                                     \
                                                          \
-    inline Result_##name Ok_##name(ok_type val)   		 \
+    static inline __attribute__((used)) Result_##name Ok_##name(ok_type val)   		 \
     {                                                    \
         Result_##name r = { .tag = RESULT_OK_##name };   \
         r.data.ok = val;                                 \
         return r;                                        \
     }                                                    \
                                                          \
-    inline Result_##name Err_##name(err_type val) 		 \
+    static inline __attribute__((used)) Result_##name Err_##name(err_type val) 		 \
     {                                                    \
         Result_##name r = { .tag = RESULT_ERR_##name };  \
         r.data.err = val;                                \
         return r;                                        \
     }                                                    \
                                                          \
-    inline int is_ok_##name(Result_##name res)    		 \
+    static inline __attribute__((used)) int is_ok_##name(Result_##name res)    		 \
     {                                                    \
         return res.tag == RESULT_OK_##name;              \
     }                                                    \
                                                          \
-    inline int is_err_##name(Result_##name res)   		 \
+    static inline __attribute__((used)) int is_err_##name(Result_##name res)   		 \
     {                                                    \
         return res.tag == RESULT_ERR_##name;             \
     }

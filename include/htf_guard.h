@@ -2,6 +2,7 @@
 #define HTF_GUARD_H
 
 #include <htf_base.h>
+#include <htf_result.h>
 
 #define GUARD_BOUNDS(val, min, max, type, msg) 	do { if ((val) < (min) || (val) > (max)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
 #define GUARD_SUCCESS(expr, type, msg) 			do { if ((expr == EXIT_SUCCESS)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
@@ -22,5 +23,7 @@
 #define GUARD_GTE(val1, val2, type, msg) 		do { if ((val1) >= (val2)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
 #define GUARD_LT(val1, val2, type, msg) 		do { if ((val1) < (val2)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
 #define GUARD_LTE(val1, val2, type, msg) 		do { if ((val1) <= (val2)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
+
+#define GUARD_RESULT(expr, type, msg) do { if (is_err_##type(expr)) { ret = expr; goto cleanup; } } while (0)
 
 #endif
