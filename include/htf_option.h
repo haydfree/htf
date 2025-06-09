@@ -3,37 +3,37 @@
 
 #include <htf_base.h>
 
-#define DEFINE_OPTION(type, name)                          \
-    typedef enum                                           \
-    {                                                      \
-        OPTION_NONE_##name,                                \
-        OPTION_SOME_##name                                 \
-    } OptionTag_##name;                                    \
-                                                           \
-    typedef struct                                         \
-    {                                                      \
-        OptionTag_##name tag;                              \
-        type value;                                        \
-    } Option_##name;                                       \
-                                                           \
-    static inline Option_##name Some_##name(type val)      \
-    {                                                      \
+#define DEFINE_OPTION(type, name)                                \
+    typedef enum                                                 \
+    {                                                            \
+        OPTION_NONE_##name,                                      \
+        OPTION_SOME_##name                                       \
+    } OptionTag_##name;                                          \
+                                                                 \
+    typedef struct                                               \
+    {                                                            \
+        OptionTag_##name tag;                                    \
+        type value;                                              \
+    } Option_##name;                                             \
+                                                                 \
+    static inline Option_##name Some_##name(type val)            \
+    {                                                            \
         return (Option_##name){ OPTION_SOME_##name, (type)val }; \
-    }                                                      \
-                                                           \
-    static inline Option_##name None_##name(void)          \
-    {                                                      \
-        return (Option_##name){ OPTION_NONE_##name, (type){0} };   \
-    }                                                      \
-                                                           \
-    static inline int is_some_##name(Option_##name opt)    \
-    {                                                      \
-        return opt.tag == OPTION_SOME_##name;              \
-    }                                                      \
-                                                           \
-    static inline int is_none_##name(Option_##name opt)    \
-    {                                                      \
-        return opt.tag == OPTION_NONE_##name;              \
+    }                                                            \
+                                                                 \
+    static inline Option_##name None_##name(void)                \
+    {                                                            \
+        return (Option_##name){ OPTION_NONE_##name, (type){0} }; \
+    }                                                            \
+                                                                 \
+    static inline int is_some_##name(Option_##name opt)          \
+    {                                                            \
+        return opt.tag == OPTION_SOME_##name;                    \
+    }                                                            \
+                                                                 \
+    static inline int is_none_##name(Option_##name opt)          \
+    {                                                            \
+        return opt.tag == OPTION_NONE_##name;                    \
     }
 
 DEFINE_OPTION(u8, u8)
