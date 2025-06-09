@@ -1,9 +1,8 @@
 #include <test.h>
-#include <stdio.h>
 
 int 
 main(void)
 {
-	printf("hello from test.c\n");
+	HTF_LOG_INFO("hello from test.c");
     return 0;
 }
