@@ -1,3 +1,3 @@
 # htf
 
-custom C ecoysystem
+custom C ecoysystem built for and by Hayden Tyler Freeman
