@@ -24,6 +24,6 @@
 #define GUARD_LT(val1, val2, type, msg) 		do { if ((val1) < (val2)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
 #define GUARD_LTE(val1, val2, type, msg) 		do { if ((val1) <= (val2)) { ret = Err_##type((msg)); goto cleanup; } } while (0)
 
-#define GUARD_RESULT(expr, type, msg) do { if (is_err_##type(expr)) { ret = expr; goto cleanup; } } while (0)
+#define GUARD_RESULT(result, type, msg) do { if (type##_is_err(result)) { ret = expr; goto cleanup; } } while (0)
 
 #endif

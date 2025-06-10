@@ -4,7 +4,7 @@ LD = clang
 AR = ar
 
 # Project settings
-PROJECT_NAME = htf_assert
+PROJECT_NAME = htf
 VERSION = 0.1.0
 
 # Directory structure

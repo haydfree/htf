@@ -1,13 +1,11 @@
 #include <test.h>
 
-Result_void 
+Result
 run_tests(void) 
 {
-	Result_void ret = Err_void("unknown error in run_tests");
-	u8 *ptr = (u8*)NULL;
+	Result ret = Err("unknown error in run_tests");
 
-    ZERO_MEMORY(ptr, 10);
-    HTF_LOG_INFO("hello from test.c");
+	HTF_LOG_INFO("hello from test.c");
 
 	ret = Ok_void((VOID){0});
 cleanup:
@@ -17,6 +15,11 @@ cleanup:
 int 
 main(void) 
 {
-    Result_void result = run_tests();
-    return is_ok_void(result) ? 0 : 1;
+	Result ret = Err("unknown error in run_tests");
+	ret = run_tests();
+
+	GUARD_RESULT(run_tests(), void, "unknown error in main");
+
+    HTF_LOG_INFO("All tests passed!");
+    return 0;
 }
