@@ -42,6 +42,24 @@ STATIC_ASSERT(sizeof(b16) == 2, b16_must_be_2_bytes);
 STATIC_ASSERT(sizeof(b32) == 4, b32_must_be_4_bytes);
 STATIC_ASSERT(sizeof(b64) == 8, b64_must_be_8_bytes);
 
+typedef enum Type
+{
+	TYPE_U8 = 0,
+	TYPE_U16 = 1,
+	TYPE_U32 = 2,
+	TYPE_U64 = 3,
+	TYPE_I8 = 4,
+	TYPE_I16 = 5,
+	TYPE_I32 = 6,
+	TYPE_I64 = 7,
+	TYPE_F32 = 8,
+	TYPE_F64 = 9,
+	TYPE_B8 = 10,
+	TYPE_B16 = 11,
+	TYPE_B32 = 12,
+	TYPE_B64 = 13,
+} Type;
+
 typedef struct { u8 _0; } VOID;
 
 #endif

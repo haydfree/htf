@@ -21,7 +21,7 @@ typedef enum HTFLogLevel {
 	HTF_LOG_LEVEL_TRACE = 5,
 } HTFLogLevel;
 
-Result_void htf_log_write(HTFLogLevel level, const char * const file, i32 line, const char * const func, const char * const fmt, ...);
+Result htf_log_write(HTFLogLevel level, const char * const file, i32 line, const char * const func, const char * const fmt, ...);
 #define HTF_LOG_FATAL(...) htf_log_write(HTF_LOG_LEVEL_FATAL, __FILE__, __LINE__, __func__, __VA_ARGS__)
 #define HTF_LOG_ERROR(...) htf_log_write(HTF_LOG_LEVEL_ERROR, __FILE__, __LINE__, __func__, __VA_ARGS__)
 #define HTF_LOG_WARN(...)  htf_log_write(HTF_LOG_LEVEL_WARN,  __FILE__, __LINE__, __func__, __VA_ARGS__)

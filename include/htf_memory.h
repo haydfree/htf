@@ -5,7 +5,7 @@
 #include <htf_guard.h>
 #include <htf_result.h>
 
-Result_void htf_zero_memory(void *ptr, u64 size);
-#define ZERO_MEMORY(ptr, size) do { GUARD_RESULT(htf_zero_memory((ptr), (size)), void, "unknown error in ZERO_MEMORY"); } while (0)
+Result htf_zero_memory(void *ptr, u64 size);
+#define ZERO_MEMORY(ptr, size) do { GUARD_RESULT(htf_zero_memory((ptr), (size)), VOID, "unknown error in ZERO_MEMORY"); } while (0)
 
 #endif
