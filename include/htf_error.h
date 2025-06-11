@@ -2,6 +2,7 @@
 #define HTF_ERROR_H
 
 #include <htf_base.h>
+#include <string.h>
 
 #define MAX_ERROR_MSG_LEN 256
 
@@ -25,6 +26,7 @@ typedef enum ErrorCode
 	ERROR_CODE_GTE = 15,
 	ERROR_CODE_LT = 16,
 	ERROR_CODE_LTE = 17,
+	ERROR_CODE_SENTINEL = -1,
 	ERROR_CODE_UNKNOWN = 69,
 } ErrorCode;
 
@@ -38,7 +40,8 @@ static inline Error htf_error(ErrorCode code, const char *msg)
 {
 	Error error = {0};
 	error.code = code;
-	strncpy(error.msg, msg, MAX_ERROR_MSG_LEN);
+	strncpy(error.msg, msg, MAX_ERROR_MSG_LEN - 1);
+	error.msg[MAX_ERROR_MSG_LEN - 1] = '\0';
 	return error;
 }
 
