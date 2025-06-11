@@ -16,11 +16,11 @@
 #define GUARD_NON_NEG(val, type, msg) 			do { if ((val) >= 0) { ret = RESULT(type, NULL, ERROR_CODE_NON_NEG, msg); goto cleanup; } } while (0)
 #define GUARD_NON_ZERO(val, type, msg) 			do { if ((val) != 0) { ret = RESULT(type, NULL, ERROR_CODE_NON_ZERO, msg); goto cleanup; } } while (0)
 #define GUARD_EQ(val1, val2, type, msg) 		do { if ((val1) == (val2)) { ret = RESULT(type, NULL, ERROR_CODE_EQ, msg); goto cleanup; } } while (0)
-#define GUARD_NEQ(val1, val2, type, msg) 		do { if ((val1) != (val2)) { ret = RESULT(type, NULL, ERROR_CODE_NEQ, msg); goto cleanup; } } while (0)
-#define GUARD_GT(val1, val2, type, msg) 		do { if ((val1) > (val2)) { ret = RESULT(type, NULL, ERROR_CODE_GT, msg); goto cleanup; } } while (0)
-#define GUARD_GTE(val1, val2, type, msg) 		do { if ((val1) >= (val2)) { ret = RESULT(type, NULL, ERROR_CODE_GTE, msg); goto cleanup; } } while (0)
+#define GUARD_NE(val1, val2, type, msg) 		do { if ((val1) != (val2)) { ret = RESULT(type, NULL, ERROR_CODE_NEQ, msg); goto cleanup; } } while (0)
 #define GUARD_LT(val1, val2, type, msg) 		do { if ((val1) < (val2)) { ret = RESULT(type, NULL, ERROR_CODE_LT, msg); goto cleanup; } } while (0)
-#define GUARD_LTE(val1, val2, type, msg) 		do { if ((val1) <= (val2)) { ret = RESULT(type, NULL, ERROR_CODE_LTE, msg); goto cleanup; } } while (0)
+#define GUARD_LE(val1, val2, type, msg) 		do { if ((val1) <= (val2)) { ret = RESULT(type, NULL, ERROR_CODE_LTE, msg); goto cleanup; } } while (0)
+#define GUARD_GT(val1, val2, type, msg) 		do { if ((val1) > (val2)) { ret = RESULT(type, NULL, ERROR_CODE_GT, msg); goto cleanup; } } while (0)
+#define GUARD_GE(val1, val2, type, msg) 		do { if ((val1) >= (val2)) { ret = RESULT(type, NULL, ERROR_CODE_GTE, msg); goto cleanup; } } while (0)
 
 #define GUARD_RESULT(result, type, msg) do { if (is_err(result, type)) { ret = expr; goto cleanup; } } while (0)
 
