@@ -8,7 +8,7 @@
 
 #define HTF_ASSERT(expr, fmt, ...) do { if (!(expr)) \
 { \
-	HTF_LOG_ERROR(fmt, __VA_ARGS__); \
+	HTF_LOG_ERROR("Assertion failed: %s", #expr) \
 	DEBUG_BREAK(); \
 	EXIT(1); \
 } } while (0)
