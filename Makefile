@@ -33,7 +33,7 @@ TEST_OBJS = $(patsubst $(TEST_DIR)/%.c, $(BUILD_DIR)/test/%.o, $(TEST_SRCS))
 MAIN_OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(MAIN_SRCS))
 
 # Compiler and linker flags
-CFLAGS = -std=c99 -Wextra -Werror -Wpedantic -Wall
+CFLAGS = -ansi -std=c99 -Wextra -Werror -Wpedantic -Wall
 DEBUG_FLAGS = -g3 -O0
 RELEASE_FLAGS = -O2 -DNDEBUG
 INCLUDE_FLAGS = -I. -I$(INCLUDE_DIR)
