@@ -30,6 +30,6 @@ static inline Result htf_result_err(Type type, ErrorCode code, const char *msg)
 	return result;
 }
 
-#define RESULT(type, val, code, msg) (code == ERROR_CODE_NONE ? htf_result_ok(type, val) : htf_result_err(type, code, msg))
+#define RESULT(type, val, code, msg) (code == ERROR_CODE_NONE || code == ERROR_CODE_SENTINEL ? htf_result_ok(type, val) : htf_result_err(type, code, msg))
 
 #endif

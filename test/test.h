@@ -10,4 +10,14 @@
 #include <htf_option.h>
 #include <htf_result.h>
 
+typedef struct HTFTestFixture
+{
+	void *data;
+} HTFTestFixture;
+
+typedef struct HTFTestSuite
+{
+	HTFTestFixture *fixtures;
+} HTFTestSuite;
+
 #endif

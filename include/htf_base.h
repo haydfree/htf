@@ -1,7 +1,7 @@
 #ifndef HTF_BASE_H
 #define HTF_BASE_H
 
-#include <htf_assert.h>
+#define STATIC_ASSERT(expr, msg) typedef char static_assert_##msg[expr ? 1 : -1]
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE -1
@@ -61,6 +61,7 @@ typedef enum Type
 	TYPE_B32 = 12,
 	TYPE_B64 = 13,
 	TYPE_VOID = 14,
+	TYPE_INT = 15,
 } Type;
 
 #endif
