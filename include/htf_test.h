@@ -1,5 +1,5 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef HTF_TEST_H
+#define HTF_TEST_H
 
 #include <htf_assert.h>
 #include <htf_base.h>
