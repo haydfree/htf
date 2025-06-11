@@ -34,7 +34,7 @@ static const char *HTF_LOG_LEVEL_STR[6] = {
 
 static inline Result htf_log_write(HTFLogLevel level, const char * const file, i32 line, const char * const func, const char * const fmt, ...)
 {
-	Result ret = RESULT(TYPE_VOID, NULL, ERROR_CODE_SENTINEL, "SENTINEL");
+	Result ret = RESULT(TYPE_void, NULL, ERROR_CODE_SENTINEL, "SENTINEL");
 
     // Get current time with microsecond precision
     struct tm *tm_info = NULL;
@@ -43,10 +43,10 @@ static inline Result htf_log_write(HTFLogLevel level, const char * const file, i
     char time_str[32] = {0};
     va_list args = {0};
 
-	GUARD_BOUNDS(level, HTF_LOG_LEVEL_FATAL, HTF_LOG_LEVEL_TRACE, TYPE_VOID, "invalid log level in htf_log_write");
-	GUARD_NULL(file, TYPE_VOID, "file is NULL in htf_log_write");
-	GUARD_NULL(func, TYPE_VOID, "func is NULL in htf_log_write");
-	GUARD_NULL(fmt, TYPE_VOID, "fmt is NULL in htf_log_write");
+	GUARD_BOUNDS(level, HTF_LOG_LEVEL_FATAL, HTF_LOG_LEVEL_TRACE, TYPE_void, "invalid log level in htf_log_write");
+	GUARD_NULL(file, TYPE_void, "file is NULL in htf_log_write");
+	GUARD_NULL(func, TYPE_void, "func is NULL in htf_log_write");
+	GUARD_NULL(fmt, TYPE_void, "fmt is NULL in htf_log_write");
 
     gettimeofday(&tv, NULL);
     tm_info = localtime(&tv.tv_sec);
@@ -63,7 +63,7 @@ static inline Result htf_log_write(HTFLogLevel level, const char * const file, i
     va_end(args);
     fprintf(stderr, "\n");
 
-	ret = RESULT(TYPE_VOID, NULL, ERROR_CODE_NONE, "NONE");
+	ret = RESULT(TYPE_void, NULL, ERROR_CODE_NONE, "NONE");
 cleanup:
 	return ret;
 }
