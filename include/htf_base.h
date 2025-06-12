@@ -8,6 +8,7 @@
 #define TRUE ((b8)1)
 #define FALSE ((b8)0)
 #define NULL ((void*)0)
+typedef struct { unsigned char _0; } VOID;
 
 #define u8 unsigned char
 #define u16 unsigned short
@@ -41,8 +42,6 @@ STATIC_ASSERT(sizeof(b8) == 1,  b8_must_be_1_byte);
 STATIC_ASSERT(sizeof(b16) == 2, b16_must_be_2_bytes);
 STATIC_ASSERT(sizeof(b32) == 4, b32_must_be_4_bytes);
 STATIC_ASSERT(sizeof(b64) == 8, b64_must_be_8_bytes);
-
-typedef struct { u8 _0; } VOID;
 
 typedef enum Type
 {
