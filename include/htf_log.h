@@ -36,7 +36,6 @@ static inline Result htf_log_write(HTFLogLevel level, const char * const file, i
 {
 	Result ret = RESULT(TYPE_void, NULL, ERROR_CODE_SENTINEL, "SENTINEL");
 
-    // Get current time with microsecond precision
     struct tm *tm_info = NULL;
     const char *level_str = NULL;
     struct timeval tv = {0};
@@ -53,11 +52,8 @@ static inline Result htf_log_write(HTFLogLevel level, const char * const file, i
     strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", tm_info);
     snprintf(time_str + 19, sizeof(time_str) - 19, ".%06ld", tv.tv_usec);
 	level_str = HTF_LOG_LEVEL_STR[level];
-
-    // Print log header
     fprintf(stderr, "[%s] [%s] [%s:%d] [%s] ", time_str, level_str, file, line, func);
 
-    // Print log message
     va_start(args, fmt);
     vfprintf(stderr, fmt, args);
     va_end(args);

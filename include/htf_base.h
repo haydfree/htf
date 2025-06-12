@@ -60,9 +60,9 @@ typedef enum Type
 	TYPE_b16 = 11,
 	TYPE_b32 = 12,
 	TYPE_b64 = 13,
-	TYPE_void = 14,
-	TYPE_int = 15,
-	TYPE_result = 16,
+	TYPE_void = 90,
+	TYPE_int = 91,
+	TYPE_result = 92,
 } Type;
 
 #endif

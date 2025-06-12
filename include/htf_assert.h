@@ -8,14 +8,14 @@
 
 #define HTF_ASSERT_EXPR(expr) do { if (!(expr)) \
 { \
-	HTF_LOG_ERROR("Assertion failed: %s", #expr); \
+	HTF_LOG_ERROR("Assertion failed: ( %s ) == %s", #expr, (expr) ? "true" : "false"); \
 	DEBUG_BREAK(); \
 	EXIT(1); \
 } } while (0)
 
 #define HTF_ASSERT(type, expr, a, b) do { if (!(expr)) \
 { \
-	HTF_LOG_ERROR("Assertion failed: %s. Actual: %s, Expected: %s", #expr, a, b); \
+	HTF_LOG_ERROR("Assertion failed: ( %s ) == %s. Actual: %s, Expected: %s", #expr, (expr) ? "true" : "false", a, b); \
 	DEBUG_BREAK(); \
 	EXIT(1); \
 } } while (0)
